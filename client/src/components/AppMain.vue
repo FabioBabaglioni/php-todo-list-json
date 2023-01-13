@@ -52,24 +52,78 @@ export default {
 
 <template>
 
-    <main>
-        <ul>
-            <!-- stampo in pagina i primi task richiamandoli dalla todolist -->
-            <li v-for="(element, index) in toDoList" :key="index">
-                {{ element.text }}
-            </li>
-        </ul>
+    <main class="container_site">
+        <div class="list">
+            <h1>Todo List</h1>
+            <div class="task" v-for="(element, index) in toDoList" :key="index">
+                <span>{{ element.text }}</span>
+            </div>
 
-        <form @submit="createNewTask">
-            <input type="text" name="newtask" v-model="newTask">
-            <input type="submit" value="new task">
-        </form>
+            <form @submit="createNewTask">
+                <input type="text" name="newtask" v-model="newTask">
+                <input type="submit" value="new task" class="button">
+            </form>
+        </div>
+
 
 
     </main>
 
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+li {
+    list-style-type: none;
+}
 
+.container_site {
+    height: 100vh;
+    background-color: lightblue
+}
+
+.list {
+    width: 60%;
+    margin: 0 auto;
+    background-color: blue;
+    text-align: center;
+}
+
+.task {
+    width: 20%;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: antiquewhite;
+
+    &:hover {
+        background-color: aquamarine;
+    }
+}
+
+form {
+    padding: 30px;
+
+    input {
+        border-radius: 30px;
+        margin-right: 10px;
+        border: none;
+    }
+
+    .button {
+        background-color: red;
+        border: none;
+        color: white;
+        padding: 5px 20px;
+
+        &:hover {
+            background-color: green;
+        }
+    }
+}
+
+h1 {
+    padding: 10px;
+    font-weight: 100;
+    font-size: 80px;
+}
 </style>
