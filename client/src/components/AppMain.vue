@@ -59,7 +59,8 @@ export default {
     <main class="container_site">
         <div class="list">
             <h1>Todo List</h1>
-            <div class="task" v-for="(element, index) in toDoList" :key="index">
+            <div class="task" v-for="(element, index) in toDoList" :key="index"
+                :class="element.completed === true ? `completed` : ``">
                 <span>{{ element.text }}</span>
             </div>
 
@@ -102,6 +103,10 @@ li {
     &:hover {
         background-color: aquamarine;
     }
+}
+
+.completed {
+    text-decoration: line-through;
 }
 
 form {
