@@ -28,18 +28,16 @@ export default {
         createNewTask(e) {
             e.preventDefault();
 
-            const newTaskText = this.newTask
-
-            const params = {
+            const config = {
                 params: {
-                    "newtask": newTaskText
+                    "text": this.newTask
                 }
+
             }
 
-            axios.get(apiUrl + "/CreateTask.php", params)
+            axios.get(apiUrl + "/CreateTask.php", config)
                 .then(() => {
-
-                    this.newTodoText = "";
+                    this.newTask = "";
                     this.getAllData();
                 });
         }
@@ -64,7 +62,7 @@ export default {
 
         <form @submit="createNewTask">
             <input type="text" name="newtask" v-model="newTask">
-            <input type="submit" value="newtask">
+            <input type="submit" value="new task">
         </form>
 
 
