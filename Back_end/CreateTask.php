@@ -5,13 +5,13 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 
 header('Content-Type: application/json');
 
-$text = $_get["newTask"];
+$text = $_GET["text"];
 
 $jasonToDoList = file_get_contents("toDo.json");
 $todoList = json_decode($jasonToDoList);
 
 $todoList[] = [
-    "text" => $newTask,
+    "text" => $text,
     "completed" => false
 ];
 
