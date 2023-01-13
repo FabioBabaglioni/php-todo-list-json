@@ -12,9 +12,10 @@ export default {
             newTodoList: ""
         };
     },
-    methods() {
-        getAllData(){
-            axios.get(apiUrl + "api.php")
+    methods: {
+
+        getAllData() {
+            axios.get(apiUrl + "php-todo-list-json/Back_end/api.php")
                 .then(res => {
                     const data = res.data
 
@@ -23,7 +24,7 @@ export default {
         }
     },
     mounted() {
-        getAllData()
+        this.getAllData()
     }
 }
 
