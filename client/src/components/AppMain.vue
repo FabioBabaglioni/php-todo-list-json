@@ -1,4 +1,4 @@
-<script >
+<script>
 
 // importo axios
 import axios from "axios"
@@ -41,6 +41,11 @@ export default {
                 {{ element.text }}
             </li>
         </ul>
+
+        <form>
+            <input type="text" name="newtask">
+            <input type="submit" value="newtask">
+        </form>
     </main>
 
 </template>
