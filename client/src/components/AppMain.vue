@@ -25,9 +25,12 @@ export default {
                     this.toDoList = data;
                 })
         },
+
+        // metodo per creare un nuova task 
         createNewTask(e) {
             e.preventDefault();
 
+            // creo i parametri per passare i dati al backend
             const config = {
                 params: {
                     "text": this.newTask
@@ -35,6 +38,7 @@ export default {
 
             }
 
+            // faccio la chiamata al url e gli mando i dati e lui mi restituisce il file json aggiornato
             axios.get(apiUrl + "/CreateTask.php", config)
                 .then(() => {
                     this.newTask = "";
