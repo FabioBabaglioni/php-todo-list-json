@@ -19,7 +19,7 @@ export default {
                 .then(res => {
                     const data = res.data
 
-                    console.log(data);
+                    this.toDoList = data;
                 })
         }
     },
@@ -33,7 +33,11 @@ export default {
 <template>
 
     <main>
-
+        <ul>
+            <li v-for="(element, index) in toDoList" :key="index">
+                {{ element.text }}
+            </li>
+        </ul>
     </main>
 
 </template>
