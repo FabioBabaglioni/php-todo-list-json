@@ -3,13 +3,14 @@
 // importo axios
 import axios from "axios"
 
+// inserisco la constante per la mia url
 const apiUrl = "http://localhost:8888/"
 
 export default {
     data() {
         return {
+            // definisco un array che si andrà a popolare con i dati del back end
             toDoList: [],
-            newTodoList: ""
         };
     },
     methods: {
@@ -19,6 +20,7 @@ export default {
                 .then(res => {
                     const data = res.data
 
+                    // inserisco i dati del file json nella todolist
                     this.toDoList = data;
                 })
         }
@@ -34,6 +36,7 @@ export default {
 
     <main>
         <ul>
+            <!-- stampo in pagina i primi task richiamandoli dalla todolist -->
             <li v-for="(element, index) in toDoList" :key="index">
                 {{ element.text }}
             </li>
